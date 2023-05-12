@@ -1,0 +1,53 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model EmployeeManagement.Models.EmployeeShift
+
+<form asp-controller="EmployeeShift" asp-action="GetEmployeeShiftById">
+    <div class="form-group">
+        <label>Id</label>
+        <input type="number" readonly class="form-control" 
+               asp-for="Id">
+    </div>
+
+    <div class="form-group">
+        <label>EmployeeId</label>
+        <input type="number" readonly class="form-control" placeholder="Select Employee Shift Id"
+               asp-for="Id">
+    </div>
+
+    <div class="form-group">
+        <label>CheckInTime</label>
+        <input type="date" class="form-control" placeholder="Enter Check In Time"
+               asp-for="StartTime">
+    </div>
+    <div class="form-group">
+        <label>CheckOutTime</label>
+        <input type="date" class="form-control" placeholder="Enter Check out Time"
+               asp-for="EndTime">
+    </div>
+    <div class="form-group">
+        <label>TotalDuration</label>
+        <input type="number" class="form-control" placeholder="Enter Total Duration"
+               asp-for="TotalTime">
+    </div>
+
+    <div class="form-group">
+        <div class="form-group">
+            <label>EmployeeShift</label>
+            <select required class="form-control" asp-for="Id">
+                <option></option>
+                @foreach (var item in ViewBag.EmployeeshiftList)
+                {
+                    <option value="@item.EmployeeId">
+                        @item.Name
+                    </option>
+                }
+            </select>
+        </div>
+    </div>
+   
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

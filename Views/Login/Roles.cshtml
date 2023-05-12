@@ -1,0 +1,17 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model EmployeeManagement.ViewModels.RoleViewModel
+<h1>Add Roles</h1>
+<div asp-validation-summary="All" class="text-danger" style="text-align:center;justify-content:center">
+</div>
+<form action="AddRoleDetails" class="col-md-4">
+    <div class="form-group">
+        <label>Role Name</label>
+        <input type="text" class="form-control" placeholder="Enter Role Name"
+               asp-for="RoleName">
+    </div>
+    <button type="submit" class="btn btn-primary" style="margin-top:10px">Add Role</button>
+</form>

@@ -1,0 +1,47 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model EmployeeManagement.Models.Department
+
+<form asp-controller="Department" asp-action="UpdateDepartmentById">
+    <div class="form-group">
+        <label>Id</label>
+        <input type="number" readonly class="form-control" placeholder="Enter Employee Id"
+               asp-for="Id">
+    </div>
+
+    <div class="form-group">
+        <label>Department Name</label>
+        <input type="text" class="form-control" placeholder="Enter Department Name"
+               asp-for="Name">
+    </div>
+    <div class="form-group">
+        <label>Department Description</label>
+        <input type="text" class="form-control" placeholder="Enter Department Description"
+               asp-for="Description">
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Employee Name</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Employees != null)
+            {
+                @foreach (EmployeeManagement.Models.Employee item in Model.Employees)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

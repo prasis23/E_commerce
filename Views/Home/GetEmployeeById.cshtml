@@ -1,0 +1,63 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model EmployeeManagement.Models.Employee
+
+<form asp-controller="Home" asp-action="UpdateEmployeeById">
+    <div class="form-group">
+        <label>Id</label>
+        <input type="number" readonly class="form-control" placeholder="Enter Employee Id"
+               asp-for="Id">
+    </div>
+  <div class="form-group">
+    <label >Employee Id</label>
+    <input type="number" class="form-control" placeholder="Enter Employee Id"
+    asp-for="EmployeeId">
+  </div>
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" placeholder="Enter Name"
+        asp-for="Name">
+    </div>
+    <div class="form-group">
+        <label>Address</label>
+        <input type="text" class="form-control" placeholder="Enter Address"
+        asp-for="Address">
+    </div>
+    <div class="form-group">
+        <label>Phone Number</label>
+        <input type="number" class="form-control" placeholder="Enter Phone Number"
+        asp-for="PhoneNumber">
+    </div>
+    <div class="form-group">
+        <label>Birth Date</label>
+        <input type="date" class="form-control" placeholder="Birth date"
+        asp-for="BirthDate">
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input type="text" class="form-control" placeholder="Enter Email"
+        asp-for="Email">
+    </div>
+    <div class="form-group">
+        <label>Salary</label>
+        <input type="number" class="form-control" placeholder="Enter Salary"
+        asp-for="Salary">
+    </div>
+    <div class="form-group">
+        <label>Department</label>
+        <select required class="form-control" asp-for="DepartmentId">
+            <option></option>
+            @foreach (var item in ViewBag.DepartmentList)
+            {
+                <option value="@item.Id">
+                    @item.Name
+                </option>
+            }
+        </select>
+    </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
